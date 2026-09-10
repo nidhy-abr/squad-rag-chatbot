@@ -15,6 +15,18 @@ import streamlit as st
 from generate import generate_answer
 from retrieve import retrieve_passages
 
+from setup_vectorstore import ensure_vectorstore
+
+@st.cache_resource
+def setup():
+    ensure_vectorstore()
+    return True
+
+setup()
+
+from generate import generate_answer
+from retrieve import retrieve_passages
+
 st.set_page_config(page_title="SQuAD RAG Chatbot", page_icon="🔎", layout="centered")
 
 st.markdown("""
