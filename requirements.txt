@@ -2,5 +2,5 @@ streamlit
 groq
 sentence-transformers
 chromadb
-datasets
+datasets==3.0.0
 python-dotenv
