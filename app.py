@@ -1,19 +1,13 @@
 import os
 import streamlit as st
 
+st.set_page_config(page_title="SQuAD RAG Chatbot", page_icon="🔎", layout="centered")
+
 try:
     if "GROQ_API_KEY" in st.secrets:
         os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 except Exception:
     pass
-
-from generate import generate_answer
-from retrieve import retrieve_passages
-
-
-import streamlit as st
-from generate import generate_answer
-from retrieve import retrieve_passages
 
 from setup_vectorstore import ensure_vectorstore
 
@@ -27,21 +21,15 @@ setup()
 from generate import generate_answer
 from retrieve import retrieve_passages
 
-st.set_page_config(page_title="SQuAD RAG Chatbot", page_icon="🔎", layout="centered")
-
-st.markdown("""
-<style>
-.stChatMessage {
-    border-radius: 12px;
-}
-</style>
-""", unsafe_allow_html=True)
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
 h1 {
     font-family: 'Poppins', sans-serif !important;
+}
+.stChatMessage {
+    border-radius: 12px;
 }
 </style>
 """, unsafe_allow_html=True)
