@@ -11,7 +11,7 @@ def ensure_vectorstore():
     except Exception:
         pass
 
-    dataset = load_dataset("squad")
+    dataset = load_dataset("rajpurkar/squad")
     all_contexts = list(dataset["train"]["context"]) + list(dataset["validation"]["context"])
     unique_contexts = list(set(all_contexts))
 
